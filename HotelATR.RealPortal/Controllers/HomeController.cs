@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using FluentValidation;
 using HotelATR.RealPortal.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -67,14 +68,18 @@ namespace HotelATR.RealPortal.Controllers
         [HttpPost]
         public IActionResult Contact(Message userMessage)
         {
-            MessageValidator rules = new MessageValidator();
-            var result = rules.Validate(userMessage);
+
             //if (string.IsNullOrWhiteSpace(email))
             //{
             //    ModelState.AddModelError("email", "Email is required");
             //}
 
+            MessageValidator rules = new MessageValidator();
+            var result = rules.Validate(userMessage);
+            //Спиоск ошибок
+            var errors = result.Errors;
 
+            rules.ValidateAndThrow(userMessage);
 
 
             if (ModelState.IsValid)
