@@ -50,9 +50,11 @@
                 </ul>
             </li>
             <li><a href="location.html">LOCATION</a></li>
-            <li><a href="event.html">EVENT</a></li>
-            <li><a href="team.html">TEAM</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
+            <li>@Html.ActionLink("EVENT", "event", "Home")</li>
+            <li>@Html.ActionLink("TEAM", "index", "Team")</li>
+            <li>
+                @Html.ActionLink("CONTACT", "Contact", "Home", new {id=666, @class="active"})
+                
         </ul>
     </nav>
-</div>
+</div> 

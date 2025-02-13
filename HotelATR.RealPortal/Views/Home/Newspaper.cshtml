@@ -10,9 +10,15 @@
                 <div class="newsletter-container">
                     <h3>NewsLetter Sign-Up</h3>
                     <div class="newsletter-form">
-                        <form id="mc-form" class="mc-form fix" asp-controller="home" asp-action="Subscribe" method="post">
-                            <input id="mc-email" type="email" name="email" placeholder="Enter your E-mail">
+                        <form asp-controller="home" asp-action="NewsLetterSignUp" id="mc-form" class="mc-form fix" asp-controller="home" asp-action="Subscribe" method="post">
+                            <input id="mc-email" type="text" name="email" placeholder="Enter your E-mail">
+                            
+                            <input id="mc-email" type="text" name="phone" placeholder="Enter your NumberPhone">
+                            
                             <button id="mc-submit" type="submit" class="default-btn">subcribes</button>
+
+                            <br />
+                            <div asp-validation-summary="All" class="form-message"></div>
                         </form>
                         <!-- mailchimp-alerts Start -->
                         <div class="mailchimp-alerts">

@@ -16,6 +16,7 @@ namespace HotelATR.RealPortal.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
@@ -29,8 +30,9 @@ namespace HotelATR.RealPortal.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddMessage(Message userMessage)
+        public IActionResult Contact(Message userMessage)
         {
+
             return View();
             //var data = Request.Form;
         }
@@ -47,6 +49,22 @@ namespace HotelATR.RealPortal.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-       
+        //NewsLetterSignUp
+        [HttpPost]
+        public IActionResult NewsLetterSignUp(string email, string phone)
+        {
+            if (string.IsNullOrWhiteSpace(email)){
+                ModelState.AddModelError("email", "Email is required");
+            }
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+
+            else { 
+                return View("Contact");
+            }
+           
+        }
     }
 }

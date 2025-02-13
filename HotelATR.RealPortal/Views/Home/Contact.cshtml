@@ -1,7 +1,10 @@
-﻿@{
+﻿@model Message
+@{
     ViewData["Title"] = "Contact";
     ViewData["PageName"] = "Contact Us";
     ViewData["PageDescripton"] = "Bruh";
+    ViewData["Keywords"] = "Bruh";
+    ViewData["Description"] = "Quality cho to tam lalallalalalal";
 }
 <!-- Google Map Area Start -->
 <div class="google-map-area">
@@ -38,14 +41,24 @@
             </div>
             <div class="col-md-8">
                 <h4 class="contact-title">send your massage</h4>
-                <form id="contact-form" asp-controller="home" asp-action="AddMessage" method="post">
+                <form id="contact-form" asp-controller="home" asp-action="contact" method="post">
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="text" name="name" placeholder="Enter Name">
+                            <input type="text" asp-for="name" placeholder="Enter Name">
+                            <span asp-validation-for="name" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
-                            <input type="email" name="email" placeholder="Enter Email">
-                        </div>
+                            <input type="text" asp-for="email" placeholder="Enter Email">
+							<span asp-validation-for="email" class="text-danger"></span>
+						</div>
+                        <div class="col-md-6">
+                            <input type="text" asp-for="createDate" placeholder="Enter CreateDate">
+							<span asp-validation-for="createDate" class="text-danger"></span>
+						</div>
+                        <div class="col-md-6">
+                            <input type="text" asp-for="city" placeholder="Enter city">
+							<span asp-validation-for="city" class="text-danger"></span>
+						</div>
                         <div class="col-md-12">
                             <textarea name="message" cols="30" rows="10" placeholder="Message here"></textarea>
                             <button type="submit" class="default-btn">SUBMIT</button>
