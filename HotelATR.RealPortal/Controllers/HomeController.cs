@@ -78,11 +78,13 @@ namespace HotelATR.RealPortal.Controllers
             var result = rules.Validate(userMessage);
             //Спиоск ошибок
             var errors = result.Errors;
-
+            //Генерирует ошибку
             rules.ValidateAndThrow(userMessage);
 
+            //throw new Exception();
 
-            if (ModelState.IsValid)
+            if (result.IsValid)
+            //if (ModelState.IsValid)
             {
                 return RedirectToAction("Index");
             }
